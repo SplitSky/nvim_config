@@ -1,29 +1,48 @@
 -- plugins.lua
 
-return require("packer").startup(function()
-	-- Packer can manage itself
-	use("wbthomason/packer.nvim")
+return {
+  -- LSP Configuration & Autocompletion
+  {
+    "neovim/nvim-lspconfig",
+    event = "BufReadPre",
+    config = function()
+      require("lsp_config")
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "L3MON4D3/LuaSnip",
+    },
+  },
 
-	-- LSP Configuration & Autocompletion
-	use("neovim/nvim-lspconfig")
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("L3MON4D3/LuaSnip")
+  -- Syntax Highlighting
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = { "BufRead", "BufNewFile" },
+    build = ":TSUpdate",
+  },
 
-	-- Syntax Highlighting
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
+  -- Fuzzy Finder
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+  },
 
-	-- Fuzzy Finder
-	use("nvim-telescope/telescope.nvim")
+  -- Git integration
+  {
+    "tpope/vim-fugitive",
+    cmd = "Git",
+  },
 
-	-- Git integration
-	use("tpope/vim-fugitive")
+  -- Terminal integration
+  {
+    "akinsho/toggleterm.nvim",
+    event = "BufWinEnter",
+  },
 
-	-- Terminal integration
-	use("akinsho/toggleterm.nvim")
+  -- Additional plugins...
+}
 
-	-- Additional plugins...
-end)
