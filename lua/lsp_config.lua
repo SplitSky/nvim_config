@@ -24,8 +24,8 @@ mason_lspconfig.setup_handlers({
     })
   end,
 
-  ["ccls"] = function()
-    lspconfig.ccls.setup({
+  ["clangd"] = function()
+    lspconfig.clangd.setup({
       -- Custom settings for Clangd
     })
   end,
