@@ -49,6 +49,12 @@ return {
       vim.cmd("colorscheme gruvbox")
     end,
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
   --
   -- Mason for managing LSP servers, linters, and formatters
   {

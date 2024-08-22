@@ -1,6 +1,4 @@
 -- init.lua
-
-
 -- Set up the leader key
 vim.g.mapleader = " " -- Space is the leader key
 vim.g.maplocalleader = " " -- Space is the local leader key
