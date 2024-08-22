@@ -1,5 +1,10 @@
 -- init.lua
 
+
+-- Set up the leader key
+vim.g.mapleader = " " -- Space is the leader key
+vim.g.maplocalleader = " " -- Space is the local leader key
+
 -- Ensure LazyVim is installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
