@@ -768,7 +768,7 @@ require("lazy").setup({
 				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
 				--  If you are experiencing weird indenting issues, add the language to
 				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
-				additional_vim_regex_highlighting = { "ruby" },
+				additional_vim_regex_highlighting = { "ruby", "python" },
 			},
 			indent = { enable = true, disable = { "ruby" } },
 		},
@@ -837,7 +837,7 @@ require("lazy").setup({
 -- vim: ts=2 sts=2 sw=2 et
 
 -- set tab stop size
-local set = vim.opt
-set.tabstop = 4
-set.softtabstop = 4
-set.shiftwidth = 4
+-- local set = vim.opt
+-- set.tabstop = 4
+-- set.softtabstop = 4
+-- set.shiftwidth = 4
