@@ -71,6 +71,14 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 15
 
+-- Set the background to be see-through
+vim.cmd([[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+
+]])
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
