@@ -17,6 +17,15 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "cpp",
+	callback = function()
+		vim.opt_local.tabstop = 2
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.expandtab = true -- Use spaces instead of tabs
+	end,
+})
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
@@ -532,7 +541,23 @@ require("lazy").setup({
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
-				clangd = {},
+				clangd = {
+					settings = {
+						c_cpp = {},
+          -- NOTE: This needs to be updated using bear for a system specific config.
+          -- NOTE: Develop a process for getting those paths automatically using bear?
+-- 							systemIncludePaths = {
+-- 								"/usr/include",
+-- 								"/usr/local/include",
+-- 								-- Add any other relevant paths
+-- 							},
+-- 							compileCommands = {
+-- 								"compile_commands.json",
+-- 								"build/compile_commands.json",
+-- 							},
+-- 						},
+-- 					},
+-- 				},
 				-- gopls = {},
 				pyright = {},
 				rust_analyzer = {},
@@ -899,11 +924,3 @@ require("lazy").setup({
 -- vim: ts=2 sts=2 sw=2 et
 
 -- Set tab size for C++ files to 2 spaces
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "cpp",
-	callback = function()
-		vim.opt_local.tabstop = 2
-		vim.opt_local.shiftwidth = 2
-		vim.opt_local.expandtab = true -- Use spaces instead of tabs
-	end,
-})
