@@ -541,11 +541,11 @@ require("lazy").setup({
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
-				clangd = {
-					settings = {
-						c_cpp = {},
-          -- NOTE: This needs to be updated using bear for a system specific config.
-          -- NOTE: Develop a process for getting those paths automatically using bear?
+				clangd = {},
+-- 					settings = {
+-- 						c_cpp = {
+--           -- NOTE: This needs to be updated using bear for a system specific config.
+--           -- NOTE: Develop a process for getting those paths automatically using bear?
 -- 							systemIncludePaths = {
 -- 								"/usr/include",
 -- 								"/usr/local/include",
