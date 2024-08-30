@@ -612,6 +612,7 @@ require("lazy").setup({
 				clangd = {
 					cmd = "/usr/bin/clangd",
 				},
+				clangd = { cmd = { "/usr/bin/clangd" } },
 				-- gopls = {},
 				pyright = {},
 				rust_analyzer = {},
@@ -622,8 +623,6 @@ require("lazy").setup({
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				tsserver = {},
-				csslp = {},
-
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes = { ...},
