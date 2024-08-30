@@ -531,7 +531,7 @@ require("lazy").setup({
 				--    https://github.com/pmizio/typescript-tools.nvim
 				-- Web Dev languages set up
 				tailwindcss = {},
-				cssls = {},
+				cssls = { settings = { css = { lint = { unknownAtRules = "ignore" } } } },
 				tsserver = {},
 				svelte = {},
 				html = {},
