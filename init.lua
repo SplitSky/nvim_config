@@ -532,7 +532,6 @@ require("lazy").setup({
 				-- Web Dev languages set up
 				tailwindcss = {},
 				cssls = { settings = { css = { lint = { unknownAtRules = "ignore" } } } },
-				tsserver = {},
 				svelte = {},
 				html = {},
 
