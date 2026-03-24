@@ -29,6 +29,7 @@ vim.opt.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "wl-clipboard"
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -519,7 +520,7 @@ require("lazy").setup({
 				tailwindcss = {},
 				cssls = { settings = { css = { lint = { unknownAtRules = "ignore" } } } },
 				svelte = {},
-				html = {},
+				html = { filetypes = { "html", "svelte" } },
 				lua_ls = {},
 				-- cmd = {...},
 				-- filetypes = { ...},
