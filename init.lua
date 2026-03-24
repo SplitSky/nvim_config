@@ -41,6 +41,13 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Ensure +page.svelte and other svelte files are detected correctly
+vim.filetype.add {
+  extension = {
+    svelte = 'svelte',
+  },
+}
+
 -- =============================================================================
 -- BOOTSTRAP lazy.nvim
 -- =============================================================================
@@ -88,7 +95,13 @@ require('lazy').setup({
       },
     },
     config = function()
-      require('telescope').setup {}
+      require('telescope').setup {
+        defaults = {
+          preview = {
+            treesitter = false,
+          },
+        },
+      }
       pcall(require('telescope').load_extension, 'fzf')
 
       local builtin = require 'telescope.builtin'
@@ -277,6 +290,7 @@ require('lazy').setup({
           ['<C-n>']     = cmp.mapping.select_next_item(),
           ['<C-p>']     = cmp.mapping.select_prev_item(),
           ['<C-y>']     = cmp.mapping.confirm { select = true },
+          ['<CR>']      = cmp.mapping.confirm { select = true },
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
